@@ -1,0 +1,138 @@
+body, html {
+  font-family: "Lato", sans-serif;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+header #fcc-logo {
+  width: 250px;
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+header h1 {
+  color: #002ead;
+  font-weight: 300;
+  font-size: 3.5rem;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 640px;
+  min-width: 320px;
+}
+
+
+section {
+  background-color: #99c9ff;
+  box-shadow: -1px 1px 2px #002ead;
+  padding: 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+
+
+.section-title {
+  display: block;
+  margin: .5rem 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+
+input {
+  box-sizing: border-box;
+  padding: .3rem;
+  border: 2px solid black;
+  width: 100%;
+}
+
+
+.submit-btn {
+  background: #002ead;
+  color: white;
+  padding: .3rem;
+  border: 2px solid black;
+  width: 120px;
+}
+
+
+pre, code {
+  display: block;
+  font-family: "Hack", sans-serif;
+  font-size: 0.8rem;
+  background-color: #f5f6f7;
+  padding: 2px;
+  border-radius: 2px;
+  margin: .3rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
+}
+
+
+pre {
+  display: inline-block;
+}
+
+code {
+  padding: 8px;
+}
+
+#example-list {
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+#user-stories-list li pre {
+  margin: 0;
+}
+
+.input-row {
+  display: block;
+  margin: 10px 0;
+}
+
+
+.link {
+  text-decoration: none;
+  box-decoration-break: clone;
+  background-color: lightblue;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+  header h1 {
+    font-size: 3rem;
+  }
+
+  main {
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 420px) {
+  header h1 {
+    font-size: 2.4rem;
+  }
+}

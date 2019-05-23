@@ -1,0 +1,88 @@
+html
+    head
+        title= title
+        meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        meta(name="author" content="Chris McCormack")
+
+        link(rel="stylesheet" type="text/css" href="./styles/styles.css")
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css' rel='stylesheet'>
+
+        link(rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png")
+        link(rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png")
+        link(rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png")
+        link(rel="manifest" href="/images/site.webmanifest")
+        link(rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5")
+        meta(name="msapplication-TileColor" content="#da532c")
+        meta(name="theme-color" content="#ffffff")
+    body
+        header
+            a(href="https://www.freecodecamp.org")
+                img#fcc-logo(src="/images/freecodecamp-alternative.svg")
+            h1#title= header
+
+        main
+            section#user-stories
+                span.section-title User Stories
+                ul#user-stories-list
+                    li I will help prevent the client from trying to guess(sniff) the MIME type.
+                    li I will prevent cross-site scripting (XSS) attacks.
+                    li I can GET /api/convert with a single parameter containing an accepted number and unit and have it converted.
+                    li Hint: Split the input by looking for the index of the first character.
+                    li I can convert 'gal' to 'L' and vice versa. (1 gal to 3.78541 L)
+                    li I can convert 'lbs' to 'kg' and vice versa. (1 lbs to 0.453592 kg)
+                    li I can convert 'mi' to 'km' and vice versa. (1 mi to 1.60934 km)
+                    li If my unit of measurement is invalid, returned will be 'invalid unit'.
+                    li If my number is invalid, returned with will 'invalid number'.
+                    li If both are invalid, return will be 'invalid number and unit'.
+                    li I can use fractions, decimals or both in my parameter(ie. 5, 1/2, 2.5/6), but if nothing is provided it will default to 1.
+                    li My return will consist of the #[pre {initNum}], #[pre {initUnit}], #[pre {returnNum}], #[pre {returnUnit}], and string spelling out units in the format #[pre {initNum} {initial_Units} converts to {returnNum} {return_Units}], with the result rounded to 5 decimals.
+                    li All 16 unit tests are complete and passing.
+                    li All 5 functional tests are complete and passing.
+            section#example_usage
+                span.section-title Example Usage
+                ul#example-list
+                    li
+                        pre /api/convert?input=4gal
+                    li
+                        pre /api/convert?input=1/2km
+                    li
+                        pre /api/convert?input=5.4/3lbs
+                    li
+                        pre /api/convert?input=kg
+            section#example_return
+                span.section-title Example Return
+                code.
+                   {
+                        "initNum": 3.1,
+                        "initUnit": "mi",
+                        "returnNum": 4.98895,
+                        "returnUnit": "km",
+                        "string": "3.1 miles converts to 4.98895 kilometers"
+                    }
+            section#try_it
+                span.section-title Try It Yourself!
+                form#try_it_form
+                    div.input-row
+                        input#try_it_input(type="text" placeholder="3.1mi" name="input")
+                    button.submit-btn(type="submit") Submit
+                code#try_it_output.hidden
+
+script.
+    document.getElementById('try_it_form').addEventListener('submit', e => {
+        e.preventDefault()
+        const input = document.getElementById('try_it_input').value
+        const output = document.getElementById('try_it_output')
+
+        fetch(`/api/convert?input=${input}`).then(res => res.text())
+            .then(text => {
+                try {
+                    const data = JSON.parse(text)
+                    output.textContent = JSON.stringify(data, null, 4)
+                } catch(err) {
+                    output.textContent = text
+                }
+                output.classList.remove('hidden')
+            })
+
+    })

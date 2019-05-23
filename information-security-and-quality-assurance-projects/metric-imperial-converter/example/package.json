@@ -1,0 +1,42 @@
+{
+	"name": "metric-imperial-converter",
+	"version": "1.0.0",
+	"description": "Convert values between imperial and metric",
+	"main": "server.js",
+	"author": "Christopher McCormack https://mackville.net",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cmccormack/metric-imperial-converter.git"
+	},
+	"keywords": [
+		"convert",
+		"conversions",
+		"metric",
+		"imperial",
+		"fcc",
+		"freecodecamp"
+	],
+	"scripts": {
+		"start": "node server.js",
+		"dev:start": "nodemon server.js",
+		"test": "cross-env NODE_ENV=test nodemon server.js"
+	},
+	"dependencies": {
+		"body-parser": "^1.15.2",
+		"chai": "^3.5.0",
+		"chai-http": "^4.2.0",
+		"cors": "^2.8.1",
+		"dotenv": "^6.0.0",
+		"express": "^4.14.0",
+		"helmet": "^3.1.0",
+		"mocha": "^5.2.0",
+		"mongodb": "^2.2.16",
+		"pug": "^2.0.3",
+		"zombie": "^6.1.3"
+	},
+	"devDependencies": {
+		"cross-env": "^5.2.0",
+		"nodemon": "^1.19.0"
+	}
+}
